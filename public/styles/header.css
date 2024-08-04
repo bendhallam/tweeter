@@ -15,8 +15,8 @@ header {
 }
 
 header img {
-  width: 100px; /* Adjust the size of the avatar */
-  height: 100px;
+  width: 200; /* Adjust the size of the avatar */
+  height: 200px;
   object-fit: cover;
 }
 
