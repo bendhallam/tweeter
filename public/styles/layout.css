@@ -28,28 +28,3 @@ html {
  .container {
   padding-top: 120px;
 }
-
-header {
-  width: 100%;
-  background-color: #fa8a00;
-  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  box-sizing: border-box;
-  font-size: 24px;
-  font-family: 'Source Sans 3', sans-serif;
-  color: #FFFFFF; /* Font color */
-}
-
-header img {
-  width: 100px; /* Adjust the size of the avatar */
-  height: 100px;
-  object-fit: cover;
-}
-
-header h2 {
-  margin: 10px 0 0;
-}
