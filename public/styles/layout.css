@@ -33,7 +33,7 @@ body {
 /* Style the main element */
 main {
   color: #545149;
-  background-color: cornsilk;
+  background-color: inherit;
   width: 90%;
   margin: 0 auto; /* Center align horizontally */
   padding: 20px; /* Optional padding for content spacing */
