@@ -37,6 +37,11 @@
   margin-top: 10px;
 }
 
+/* Button hover effect */
+.new-tweet button:hover {
+  background-color: #0d95e8; /* Slightly darker blue for hover */
+}
+
 /* Counter styling */
 .counter {
   position: absolute;
