@@ -1,0 +1,48 @@
+/* New tweet section styling */
+.new-tweet {
+  margin-top: 20px;
+  position: relative;
+}
+
+/* Label styling */
+.new-tweet label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  border-bottom: 2px solid;
+  padding-bottom: 5px;
+}
+
+/* Text box styling */
+.new-tweet textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Button styling */
+.new-tweet button {
+  background-color: #4056A1; /* Blue background for the button */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: 'Bungee', cursive; /* Font-family for Bungee font */
+  display: block;
+  margin-top: 10px;
+}
+
+/* Counter styling */
+.counter {
+  position: absolute;
+  right: 0;
+  bottom: 10px; /* Adjust position as needed */
+  font-family: 'Bungee', cursive; /* Font-family for Bungee font */
+  font-size: 1em;
+  color: #333;
+}
