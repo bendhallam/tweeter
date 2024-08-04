@@ -1,0 +1,32 @@
+/* Styling for the navigation bar */
+nav {
+  display: flex;
+  height: 120px;
+  width: 100vw; /* Full width of the viewport */
+  background-color: #4056A1; /* Background color */
+  color: #FFFFFF; /* Font color */
+  padding: 0 1.5em; /* Space on the right and left */
+  box-sizing: border-box; /* Ensures padding is included in height and width */
+  align-items: center;
+  justify-content: space-between; /* Space between items */
+}
+
+/* Styling for the <span> element within <nav> */
+nav span {
+  font-family: 'Bungee', cursive; /* Font-family for <span> elements */
+}
+
+/* Container for the "Write a new tweet" text and icon */
+.nav-right {
+  text-align: center; /* Centers content horizontally */
+}
+
+.nav-text {
+  display: block; /* Ensures the text is a block-level element */
+  margin-bottom: 5px; /* Space between text and icon */
+}
+
+.nav-icon {
+  display: inline-block; /* Ensures the icon is centered under the text */
+  color: red; /* Sets the color of the icon to red */
+}
