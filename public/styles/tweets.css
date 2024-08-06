@@ -1,0 +1,80 @@
+/* styles/tweet.css */
+
+/* Style for the tweet feed section */
+.tweet-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 15px;
+}
+
+article {
+  background-color: cornsilk;
+  border: 3px solid black; /* Changed border to 3px solid black */
+  padding: 1rem;
+  position: relative;
+  transition: box-shadow 0.3s ease; /* Smooth transition for the box-shadow */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for the tweet header */
+article header {
+  height: auto;
+  width: auto;
+  background-image: none;
+  background-color: cornsilk;
+  display: flex;
+  align-items: flex-start;
+  align-content: center;
+  gap: 0.5rem;
+}
+
+article header img {
+  width: 50px;
+  height: 50px;
+}
+
+article header span {
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Style for the tweet content */
+article p {
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Border line beneath the tweet */
+article footer {
+  border-top: 1px solid black;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+/* Style for the action buttons */
+footer button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #333;
+}
+
+footer button:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+footer i {
+  font-size: 0.9rem;
+}
+
+/* Box shadow effect on hover */
+article:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+}
