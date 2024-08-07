@@ -8,48 +8,49 @@
   padding-top: 15px;
 }
 
-article {
+/* Tweet box formatting */
+.tweet {
   background-color: cornsilk;
-  border: 3px solid black; /* Changed border to 3px solid black */
+  border: 2px solid #333;
+  border-radius: 4px;
   padding: 1rem;
-  position: relative;
-  transition: box-shadow 0.3s ease; /* Smooth transition for the box-shadow */
+  transition: box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
 }
 
-/* Style for the tweet header */
-article header {
-  height: auto;
-  width: auto;
-  background-image: none;
-  background-color: cornsilk;
+
+/* Tweet header (user name and avatar section) */
+.tweet header {
+  height: 75px;
+  width: 100%;
   display: flex;
-  align-items: flex-start;
-  align-content: center;
+  align-items: center;
   gap: 0.5rem;
 }
 
-article header img {
-  width: 50px;
-  height: 50px;
+/* Format the avatar image */
+.tweet header img {
+  height: 75px;
+  width: 75px;
 }
 
-article header span {
-  color: black;
+/* Format the user-name */
+.tweet header span {
+  color: #333;
   font-weight: bold;
   font-size: 1rem;
 }
 
 /* Style for the tweet content */
-article p {
+.tweet p {
   margin-top: 0.5rem;
-  line-height: 1.4;
+  line-height: 1.5rem;
 }
 
 /* Border line beneath the tweet */
-article footer {
-  border-top: 1px solid black;
+.tweet footer {
+  border-top: 1px solid #333;
   margin-top: 0.5rem;
   padding-top: 0.5rem;
   display: flex;
@@ -58,7 +59,7 @@ article footer {
 }
 
 /* Style for the action buttons */
-footer button {
+.tweet button {
   background: none;
   border: none;
   cursor: pointer;
@@ -66,15 +67,16 @@ footer button {
   color: #333;
 }
 
-footer button:hover {
-  color: #007bff; /* Change color on hover */
-}
-
-footer i {
+.tweet footer i {
   font-size: 0.9rem;
 }
 
 /* Box shadow effect on hover */
-article:hover {
+.tweet:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+}
+
+.tweet footer i:hover {
+  color: #007bff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
 }

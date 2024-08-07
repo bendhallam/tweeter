@@ -1,4 +1,4 @@
-header {
+.profile {
   height: 400px;
   width: 100%;
   background-color: #fa8a00;
@@ -14,12 +14,12 @@ header {
   color: #FFFFFF; /* Font color */
 }
 
-header img {
+.profile img {
   width: 200px; /* Adjust the size of the avatar */
   height: 200px;
   object-fit: cover;
 }
 
-header h2 {
+.profile h2 {
   margin: 10px 0 0;
 }
