@@ -30,14 +30,9 @@ const data = [
   }
 ]
 
-const renderTweets = function(tweets) {
-// loops through tweets
-// calls createTweetElement for each tweet
-// takes return value and appends it to the tweets container
-}
 
 const createTweetElement = function(tweet) {
-  const { user, content, created_at } = tweet;
+  const { user, content } = tweet;
   // format the date
   let $tweet = $(`
     <article class="tweet">
@@ -63,7 +58,7 @@ const createTweetElement = function(tweet) {
 
 const renderTweets = function(tweets) {
   // Select the container where tweets will be appended
-  const $tweetsContainer = $('#tweets-container');
+  const $tweetsContainer = $('.tweets-container');
 
   // Clear existing tweets
   $tweetsContainer.empty();
