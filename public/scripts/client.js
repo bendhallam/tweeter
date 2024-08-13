@@ -4,6 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+
 // Fake data taken from initial-tweets.json
 const data = [
   {
@@ -30,9 +31,9 @@ const data = [
   }
 ]
 
-
 const createTweetElement = function(tweet) {
-  const { user, content } = tweet;
+  const { user, content, created_at } = tweet;
+  const timeagoString = timeago.format(new Date(created_at));
   // format the date
   let $tweet = $(`
     <article class="tweet">
@@ -50,6 +51,7 @@ const createTweetElement = function(tweet) {
           <i class="fa fa-retweet"></i>
           <i class="fa fa-heart"></i>
         </div>
+        <span class="timeago">${timeagoString}</span>
       </footer>
     </article>
   `);
@@ -71,3 +73,47 @@ const renderTweets = function(tweets) {
 };
 
 renderTweets(data);
+
+$(document).ready(function() {
+  // Define the function to load tweets from the server
+  const loadTweets = function() {
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+      dataType: 'json',
+      success: function(tweets) {
+        renderTweets(tweets);
+      },
+      error: function(xhr, status, error) {
+        console.error("Error loading tweets:", status, error);
+      }
+    });
+  };
+  
+  // Call loadTweets when the document is ready
+  loadTweets();
+
+  // Select the form using its ID or a class if you prefer
+  $('#submit-tweet-button').on('click', function(event) {
+    // Prevent the default form submission
+    event.preventDefault();
+    // Serialize the form data
+    const formData = $('form').serialize();
+    // Log the serialized data for debugging
+    console.log("Serialized form data:", formData);
+    // Send the data using AJAX
+    $.ajax({
+      url: '/tweets/',
+      method: 'POST',
+      data: formData,
+      success: function(response) {
+        // Handle success
+        console.log("Tweet posted successfully:", response);
+      },
+      error: function(xhr, status, error) {
+        // Handle errors
+        console.error("Error posting tweet:", status, error);
+      }
+    });
+  });
+});
