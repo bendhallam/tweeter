@@ -97,6 +97,26 @@ $(document).ready(function() {
   $('#submit-tweet-button').on('click', function(event) {
     // Prevent the default form submission
     event.preventDefault();
+    // Access the textarea element
+    const textarea = $('.new-tweet textarea');
+    const tweetContet = textarea.val().trim();
+    const textLength = tweetContent.length;
+
+    // Ensure tweet isn't empty
+    if (textLength === 0) {
+      alert("Tweet cannot be empty.");
+      // Prevent form submission
+      return;
+    }
+
+    // Ensure tweet isn't too long
+    if (textLength > 140) {
+      alert("Tweet exceeds the 140-character limit.");
+      // Prevent form submission
+      return;
+    }
+
+
     // Serialize the form data
     const formData = $('form').serialize();
     // Log the serialized data for debugging
