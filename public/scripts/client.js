@@ -39,7 +39,6 @@ const renderTweets = function(tweets) {
 const createTweetElement = function(tweet) {
   const { user, content, created_at } = tweet;
   // format the date
-  const timeAgo = new Date(created_at).toLocaleDateString();
   let $tweet = $(`
     <article class="tweet">
       <header>
@@ -51,7 +50,6 @@ const createTweetElement = function(tweet) {
       </header>
       <p class="tweet-content">${content.text}</p>
       <footer>
-        <span class="time-ago">${timeAgo}</span>
         <div class="actions">
           <i class="fa fa-flag"></i>
           <i class="fa fa-retweet"></i>
@@ -73,7 +71,7 @@ const renderTweets = function(tweets) {
   // Loop through each tweet and create its element
   tweets.forEach(tweet => {
     const $tweetElement = createTweetElement(tweet);
-    $tweetsContainer.append($tweetElement);
+    $tweetsContainer.prepend($tweetElement);
   });
 };
 
