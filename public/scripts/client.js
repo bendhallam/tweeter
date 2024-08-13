@@ -99,7 +99,7 @@ $(document).ready(function() {
     event.preventDefault();
     // Access the textarea element
     const textarea = $('.new-tweet textarea');
-    const tweetContet = textarea.val().trim();
+    const tweetContent = textarea.val().trim();
     const textLength = tweetContent.length;
 
     // Ensure tweet isn't empty
