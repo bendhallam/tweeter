@@ -55,3 +55,51 @@
   font-family: 'Bungee', cursive; /* Font-family for Bungee font */
   font-size: 1em;
 }
+
+
+.error-message {
+  color: #ff0000; /* Red color for errors */
+  font-size: 14px;
+  margin-top: 10px;
+  display: none; /* Initially hidden */
+  border: 1px solid #ff0000; /* Red border */
+  padding: 10px;
+  background-color: #fdd; /* Light red background */
+  border-radius: 5px;
+  /* Optional: Add some animation */
+  transition: all 0.3s ease-in-out;
+  /* Optional: Add slide effect */
+  overflow: hidden;
+}
+
+.error-message.show {
+  display: block;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+      max-height: 0;
+      opacity: 0;
+  }
+  to {
+      max-height: 100px; /* Adjust as needed */
+      opacity: 1;
+  }
+}
+
+.error-message.hide {
+  display: none;
+  animation: slideOut 1s ease-in-out;
+}
+
+@keyframes slideOut {
+  from {
+      max-height: 100px; /* Adjust as needed */
+      opacity: 1;
+  }
+  to {
+      max-height: 0;
+      opacity: 0;
+  }
+}

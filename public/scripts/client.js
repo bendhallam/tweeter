@@ -31,22 +31,30 @@ const data = [
   }
 ]
 
+const escape = function(str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 const createTweetElement = function(tweet) {
   const { user, content, created_at } = tweet;
   const timeagoString = timeago.format(new Date(created_at));
-  // format the date
+  const escapedText = escape(content.text);
+
+  // Use jQuery's .text() for user input
   let $tweet = $(`
     <article class="tweet">
       <header>
-        <img class="avatar" src="${user.avatars}" alt="${user.name}'s avatar">
+        <img class="avatar" src="${escape(user.avatars)}" alt="${escape(user.name)}'s avatar">
         <div class="user-info">
-          <strong>${user.name}</strong>
-          <span class="handle">${user.handle}</span>
+          <strong>${escape(user.name)}</strong>
+          <span class="handle">${escape(user.handle)}</span>
         </div>
       </header>
-      <p class="tweet-content">${content.text}</p>
+      <p class="tweet-content">${escapedText}</p>
       <footer>
-      <span class="timeago">${timeagoString}</span>
+        <span class="timeago">${timeagoString}</span>
         <div class="actions">
           <i class="fa-solid fa-flag"></i>
           <i class="fa-solid fa-retweet"></i>
@@ -55,8 +63,9 @@ const createTweetElement = function(tweet) {
       </footer>
     </article>
   `);
+
   return $tweet;
-}
+};
 
 const renderTweets = function(tweets) {
   // Select the container where tweets will be appended
@@ -75,7 +84,6 @@ const renderTweets = function(tweets) {
 renderTweets(data);
 
 $(document).ready(function() {
-  // Define the function to load tweets from the server
   const loadTweets = function() {
     $.ajax({
       url: '/tweets',
@@ -89,54 +97,47 @@ $(document).ready(function() {
       }
     });
   };
-  
-  // Call loadTweets when the document is ready
+
   loadTweets();
 
-  // Select the form using its ID or a class if you prefer
   $('#submit-tweet-button').on('click', function(event) {
-    // Prevent the default form submission
     event.preventDefault();
-    // Access the textarea element
+    
+    // Hide the error message initially
+    const errorMessage = $('.error-message');
+    errorMessage.hide().removeClass('show').addClass('hide');
+    
     const textarea = $('.new-tweet textarea');
     const tweetContent = textarea.val().trim();
     const textLength = tweetContent.length;
 
-    // Ensure tweet isn't empty
     if (textLength === 0) {
-      alert("Tweet cannot be empty.");
-      // Prevent form submission
+      errorMessage.text("Tweet cannot be empty.").show().removeClass('hide').addClass('show');
       return;
     }
 
-    // Ensure tweet isn't too long
     if (textLength > 140) {
-      alert("Tweet exceeds the 140-character limit.");
-      // Prevent form submission
+      errorMessage.text("Tweet exceeds the 140-character limit.").show().removeClass('hide').addClass('show');
       return;
     }
 
-
-    // Serialize the form data
     const formData = $('form').serialize();
-    // Log the serialized data for debugging
-    console.log("Serialized form data:", formData);
-    // Send the data using AJAX
     $.ajax({
       url: '/tweets/',
       method: 'POST',
       data: formData,
       success: function(response) {
-        // Handle success
+
         textarea.val('');
+        const counter = textarea.closest('form').find('.counter');
+        counter.text(140);
         console.log("Tweet posted successfully:", response);
         loadTweets();
+        errorMessage.hide().removeClass('show').addClass('hide');
       },
       error: function(xhr, status, error) {
-        // Handle errors
         console.error("Error posting tweet:", status, error);
       }
     });
   });
- 
 });
