@@ -84,6 +84,7 @@ const renderTweets = function(tweets) {
 renderTweets(data);
 
 $(document).ready(function() {
+  // Define the function to load tweets from the server
   const loadTweets = function() {
     $.ajax({
       url: '/tweets',
@@ -97,45 +98,55 @@ $(document).ready(function() {
       }
     });
   };
-
+  
+  // Call loadTweets when the document is ready
   loadTweets();
 
+  // Select the form using its ID or a class if you prefer
   $('#submit-tweet-button').on('click', function(event) {
+    // Prevent the default form submission
     event.preventDefault();
-    
-    // Hide the error message initially
-    const errorMessage = $('.error-message');
-    errorMessage.hide().removeClass('show').addClass('hide');
-    
+    // Access the textarea element
     const textarea = $('.new-tweet textarea');
     const tweetContent = textarea.val().trim();
     const textLength = tweetContent.length;
+    const errorMessage = $('.new-tweet .error-message');
 
+    errorMessage.slideUp();
+
+    // Ensure tweet isn't empty
     if (textLength === 0) {
-      errorMessage.text("Tweet cannot be empty.").show().removeClass('hide').addClass('show');
+      errorMessage.text("Tweet cannot be empty.").slideDown();
       return;
     }
 
+    // Ensure tweet isn't too long
     if (textLength > 140) {
-      errorMessage.text("Tweet exceeds the 140-character limit.").show().removeClass('hide').addClass('show');
+      errorMessage.text("Tweet exceeds the 140-character limit.").slideDown();
       return;
     }
 
+
+    // Serialize the form data
     const formData = $('form').serialize();
+    // Log the serialized data for debugging
+    console.log("Serialized form data:", formData);
+    // Send the data using AJAX
     $.ajax({
       url: '/tweets/',
       method: 'POST',
       data: formData,
       success: function(response) {
-
+        // Handle success
         textarea.val('');
-        const counter = textarea.closest('form').find('.counter');
-        counter.text(140);
+        // Reset counter
+        const counter = textarea.closest('form').find('.counter')
+        counter.text(140)
         console.log("Tweet posted successfully:", response);
         loadTweets();
-        errorMessage.hide().removeClass('show').addClass('hide');
       },
       error: function(xhr, status, error) {
+        // Handle errors
         console.error("Error posting tweet:", status, error);
       }
     });
