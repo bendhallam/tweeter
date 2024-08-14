@@ -46,12 +46,12 @@ const createTweetElement = function(tweet) {
       </header>
       <p class="tweet-content">${content.text}</p>
       <footer>
+      <span class="timeago">${timeagoString}</span>
         <div class="actions">
-          <i class="fa fa-flag"></i>
-          <i class="fa fa-retweet"></i>
-          <i class="fa fa-heart"></i>
+          <i class="fa-solid fa-flag"></i>
+          <i class="fa-solid fa-retweet"></i>
+          <i class="fa-solid fa-heart"></i>
         </div>
-        <span class="timeago">${timeagoString}</span>
       </footer>
     </article>
   `);
@@ -60,7 +60,7 @@ const createTweetElement = function(tweet) {
 
 const renderTweets = function(tweets) {
   // Select the container where tweets will be appended
-  const $tweetsContainer = $('.tweets-container');
+  const $tweetsContainer = $('.tweet-feed');
 
   // Clear existing tweets
   $tweetsContainer.empty();
@@ -128,7 +128,9 @@ $(document).ready(function() {
       data: formData,
       success: function(response) {
         // Handle success
+        textarea.val('');
         console.log("Tweet posted successfully:", response);
+        loadTweets();
       },
       error: function(xhr, status, error) {
         // Handle errors
@@ -136,4 +138,5 @@ $(document).ready(function() {
       }
     });
   });
+ 
 });

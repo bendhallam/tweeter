@@ -17,29 +17,45 @@
   transition: box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
+  position: relative; /* Required for positioning child elements */
 }
-
 
 /* Tweet header (user name and avatar section) */
 .tweet header {
-  height: 75px;
-  width: 100%;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  position: relative; /* Ensure positioning is relative to the tweet */
 }
 
 /* Format the avatar image */
 .tweet header img {
-  height: 75px;
-  width: 75px;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+/* Format the user-info container */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem; /* Space between name and handle */
 }
 
 /* Format the user-name */
-.tweet header span {
+.user-info strong {
   color: #333;
   font-weight: bold;
   font-size: 1rem;
+}
+
+/* Format the user-handle (position it in the top right corner) */
+.user-info .handle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #666; /* Adjust color if needed */
+  font-size: 1rem;
+  font-weight: normal;
 }
 
 /* Style for the tweet content */
@@ -54,17 +70,8 @@
   margin-top: 0.5rem;
   padding-top: 0.5rem;
   display: flex;
-  justify-content: flex-end;
-  gap: 0.5rem;
-}
-
-/* Style for the action buttons */
-.tweet button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  color: #333;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .tweet footer i {
@@ -73,10 +80,21 @@
 
 /* Box shadow effect on hover */
 .tweet:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .tweet footer i:hover {
   color: #007bff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+  cursor: pointer;
+}
+
+.timeago {
+  color: #666;
+  font-size: 1rem;
+  display: flex;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
 }
