@@ -1,10 +1,9 @@
 /* Styling for the navigation bar */
 nav {
   display: flex;
-  position: fixed;
+  position: absolute;
   height: 120px;
   width: 100vw; /* Full width of the viewport */
-  background-color: #4056A1; /* Background color */
   color: #FFFFFF; /* Font color */
   padding: 0 1.5em; /* Space on the right and left */
   box-sizing: border-box; /* Ensures padding is included in height and width */
@@ -44,4 +43,15 @@ nav span {
 .nav-icon:hover {
   color: white;
   cursor: pointer;
+}
+
+nav span:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 1080px) {
+  nav {
+    background-color: #4056A1;
+    position: fixed;
+  }
 }

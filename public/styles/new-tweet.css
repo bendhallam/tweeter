@@ -1,12 +1,15 @@
 /* New tweet section styling */
 .new-tweet {
-  margin-top: 20px;
   position: relative;
+}
+
+.new-tweet h2 {
+  margin: 5px;
 }
 
 /* What are you humming about styling */
 .new-tweet label {
-  display: block;
+  display: flex;
   margin-bottom: 10px;
   font-weight: bold;
   border-bottom: 2px solid; /* Add a line between label and textara */
@@ -59,9 +62,10 @@
 .error-message {
   display: none;
   padding: 10px;
-  border: 1px solid #d9534f; /* Red border */
-  background-color: #f2dede; /* Light red background */
-  color: #a94442; /* Darker red text */
+  border: 1px solid #d9534f;
+  background-color: #f2dede; 
+  color: #a94442;
   border-radius: 4px;
-  margin-bottom: 10px; /* Space below the error message */
+  margin-bottom: 10px;
 }
+

@@ -133,7 +133,7 @@ $(document).ready(function() {
     console.log("Serialized form data:", formData);
     // Send the data using AJAX
     $.ajax({
-      url: '/tweets/',
+      url: '/tweets',
       method: 'POST',
       data: formData,
       success: function(response) {
@@ -151,4 +151,10 @@ $(document).ready(function() {
       }
     });
   });
+  $('#to-new-tweet').click(function() {
+      window.scrollTo(0, 0);
+  })
+  $('#tweeter-logo').click(function() {
+    window.scrollTo(0, 0);
+})
 });

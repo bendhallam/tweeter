@@ -27,15 +27,35 @@ body {
 
 /* Push body content below the navbar */
 .content {
-  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Style the main element */
 main {
   color: #333;
   background-color: inherit;
-  width: 90%;
   margin: 0 auto; /* Center align horizontally */
   padding: 20px; /* Optional padding for content spacing */
   box-sizing: border-box; /* Include padding in the element's total width */
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+
+@media (min-width: 1080px) {
+  .content {
+    padding-top: 120px;
+    flex-direction: row;
+  }
+  .container{
+    width: 70%;
+  }
 }
