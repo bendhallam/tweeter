@@ -6,6 +6,10 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots
 
+!["Screenshot of Desktop Mode"](https://github.com/bendhallam/tweeter/blob/master/docs/Tweeter%20Dekstop%20Mode.png)
+!["Screenshot of Mobile Mode"](https://github.com/bendhallam/tweeter/blob/master/docs/Tweeter%20Mobile%20Version.png)
+!["Screenshot of Tweet Feed"](https://github.com/bendhallam/tweeter/blob/master/docs/Tweeter%20Feed.png)
+
 
 ## Getting Started
 
