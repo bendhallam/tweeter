@@ -36,17 +36,19 @@ nav span {
 
 }
 
+/* Format the downward arrows below the Write A New Tweet */
 .nav-icon {
   display: inline-block; /* Ensures the icon is centered under the text */
   color: red; /* Sets the color of the icon to red */
   animation: bounce 1s infinite; /* Apply the bounce animation */
 }
 
+/* Change the arrows to white when hovered over */
 .nav-icon:hover {
   color: white;
-  cursor: pointer;
 }
 
+/* Change the cursor when hovered over any of the Write A New Tweet elements */
 nav span:hover {
   cursor: pointer;
 }
@@ -54,12 +56,12 @@ nav span:hover {
 /* Setup bouncing animation for downward arrows icon */
 @keyframes bounce {
   0% {
-    transform: translateY(0);
+    transform: translateY(0); /* Starting position */
   }
   50% {
     transform: translateY(-3px); /* bounce height */
   }
   100% {
-    transform: translateY(0);
+    transform: translateY(0); /* Ending position */
   }
 }

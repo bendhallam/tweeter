@@ -33,21 +33,25 @@ body {
 
 /* Style the main element */
 main {
+  width: 90%;
   color: #333;
   background-color: inherit;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  margin: auto; /* center main within container */
 }
 
 
-
+/* Broad format for when on desktop screen 
+* Make two different colums (switch to row direction for main content element)
+* Make the tweet feed (.container) section take up 60% of screen
+*/
 @media (min-width: 1080px) {
   .content {
     flex-direction: row;
   }
   .container{
-    width: 70%;
-    z-index: 0;
+    width: 60%;
   }
 }

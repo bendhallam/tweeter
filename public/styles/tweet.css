@@ -82,17 +82,20 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Change the cursor and make icons blue */
 .tweet footer i:hover {
   color: #007bff;
   cursor: pointer;
 }
 
+/* Settings for the time ago tweet footer */
 .timeago {
   color: #666;
   font-size: 1rem;
   display: flex;
 }
 
+/* Put space between the footer icons */
 .actions {
   display: flex;
   gap: 0.5rem;

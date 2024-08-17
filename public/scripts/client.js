@@ -5,41 +5,20 @@
  */
 
 
-// Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+// initialize tweet array
+const data = []
 
+// Escape function for Cross Site Scripting
 const escape = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
+// Function to format the created tweet to be fed into the tweet feed
 const createTweetElement = function(tweet) {
   const { user, content, created_at } = tweet;
-  const timeagoString = timeago.format(new Date(created_at));
+  const timeagoString = timeago.format(new Date(created_at)); // Make timeago information easier to access
   const escapedText = escape(content.text);
 
   // Use jQuery's .text() for user input
@@ -81,7 +60,7 @@ const renderTweets = function(tweets) {
   });
 };
 
-renderTweets(data);
+renderTweets(data); // Render the tweets upon load
 
 $(document).ready(function() {
   // Define the function to load tweets from the server
@@ -135,15 +114,15 @@ $(document).ready(function() {
     $.ajax({
       url: '/tweets',
       method: 'POST',
-      data: formData,
+      data: formData, // Send serialized data from textarea
       success: function(response) {
         // Handle success
-        textarea.val('');
+        textarea.val(''); // Reset text area to blank
         // Reset counter
         const counter = textarea.closest('form').find('.counter')
         counter.text(140)
         console.log("Tweet posted successfully:", response);
-        loadTweets();
+        loadTweets(); // Refresh tweet feed without reloading page
       },
       error: function(xhr, status, error) {
         // Handle errors
@@ -151,10 +130,12 @@ $(document).ready(function() {
       }
     });
   });
+  // Scroll to top of page when either the tweeter logo or the write a new tweet buttons are clicked
   $('#to-new-tweet').click(function() {
-    $('html, body').animate({scrollTop: 0}, 100);
+    $('html, body').animate({scrollTop: 0}, 100); // Scroll to top within 100 milliseconds
+    $('#tweet-text').focus(); // Activate textarea if the Write a New Tweet button specifically is clicked
   })
   $('#tweeter-logo').click(function() {
-    $('html, body').animate({scrollTop: 0}, 100)
+    $('html, body').animate({scrollTop: 0}, 100) // Scroll to top within 100 milliseconds
 })
 });
