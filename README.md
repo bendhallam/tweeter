@@ -2,7 +2,7 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express back-end skills.
+The motivation behind Tweeter is for us, the students of Lighthouse Labs, to learn the ins and outs of front-end development creating a responsive, aesthetically pleasing, and well laid out mock up for a twitter-like website.
 
 ## Screenshots
 
@@ -23,5 +23,10 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- Body-parser
+- Chance
+- Timeago.js
 
+# Endnote
 
+I have formatted the desktop version to favour the tweet feed instead of having a 50/50 split between the tweet feed and the profile information as I think this is more userfriendly and looks better. I have also avoided making the profile header scroll with the navbar in the mobile format unlike what some of the reference gifs showed as to fulfill the header requirements and make it scroll obscures most of the tweet-feed and does not look nice in my opinion. Also please notice the fun little animation I have added to the downward arrows icon in the top right corner, I am very proud of this touch.
