@@ -12,6 +12,7 @@
   font-size: 24px;
   font-family: 'Source Sans 3', sans-serif;
   color: #FFFFFF; /* Font color */
+  z-index: 1;
 }
 
 .profile img {
@@ -30,5 +31,6 @@
     flex-direction: column;
     width: 30%;
     padding-top: 0;
+    z-index: 0;
   }
 }

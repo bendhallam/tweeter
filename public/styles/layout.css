@@ -25,26 +25,18 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
-/* Push body content below the navbar */
 .content {
   display: flex;
   flex-direction: column;
+  padding-top: 120px;
 }
 
 /* Style the main element */
 main {
   color: #333;
   background-color: inherit;
-  margin: 0 auto; /* Center align horizontally */
-  padding: 20px; /* Optional padding for content spacing */
-  box-sizing: border-box; /* Include padding in the element's total width */
+  padding: 20px;
   display: flex;
-  flex-direction: column;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
   flex-direction: column;
 }
 
@@ -52,10 +44,10 @@ main {
 
 @media (min-width: 1080px) {
   .content {
-    padding-top: 120px;
     flex-direction: row;
   }
   .container{
     width: 70%;
+    z-index: 0;
   }
 }

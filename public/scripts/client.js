@@ -152,9 +152,9 @@ $(document).ready(function() {
     });
   });
   $('#to-new-tweet').click(function() {
-      window.scrollTo(0, 0);
+    $('html, body').animate({scrollTop: 0}, 100);
   })
   $('#tweeter-logo').click(function() {
-    window.scrollTo(0, 0);
+    $('html, body').animate({scrollTop: 0}, 100)
 })
 });

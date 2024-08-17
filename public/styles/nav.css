@@ -1,7 +1,8 @@
 /* Styling for the navigation bar */
 nav {
+  background-color: #4056A1;
   display: flex;
-  position: absolute;
+  position: fixed;
   height: 120px;
   width: 100vw; /* Full width of the viewport */
   color: #FFFFFF; /* Font color */
@@ -9,7 +10,7 @@ nav {
   box-sizing: border-box; /* Ensures padding is included in height and width */
   align-items: center;
   justify-content: space-between; /* Space between items */
-  z-index: 1; /* Ensure the navbar stays in front of everything else */
+  z-index: 2;
 }
 
 /* Styling for the <span> element within <nav> */
@@ -38,6 +39,7 @@ nav span {
 .nav-icon {
   display: inline-block; /* Ensures the icon is centered under the text */
   color: red; /* Sets the color of the icon to red */
+  animation: bounce 1s infinite; /* Apply the bounce animation */
 }
 
 .nav-icon:hover {
@@ -49,9 +51,15 @@ nav span:hover {
   cursor: pointer;
 }
 
-@media (min-width: 1080px) {
-  nav {
-    background-color: #4056A1;
-    position: fixed;
+/* Setup bouncing animation for downward arrows icon */
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px); /* bounce height */
+  }
+  100% {
+    transform: translateY(0);
   }
 }
